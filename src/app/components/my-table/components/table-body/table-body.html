@@ -1,0 +1,15 @@
+@for (data of tableData(); track $index) {
+  <tr>
+    @for (columnData of tableColumnData(); track $index) {
+      @if (templatesMap.get(columnData[1].field)) {
+        <td>
+          <ng-container
+            *ngTemplateOutlet="templatesMap.get(columnData[1].field); context: { $implicit: data }"
+          />
+        </td>
+      } @else {
+        <td>{{ data[columnData[1].field] }}</td>
+      }
+    }
+  </tr>
+}
