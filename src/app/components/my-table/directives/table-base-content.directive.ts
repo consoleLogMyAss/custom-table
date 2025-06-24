@@ -7,11 +7,12 @@ export class TableBaseContent implements AfterContentInit{
   public tableParent: MyTable = inject(MyTable);
 
   public templatesQuery: Signal<readonly CellTemplateDirective[]> = contentChildren(CellTemplateDirective)
+
   protected templatesMap: Map<string, TemplateRef<unknown>> = new Map();
 
   ngAfterContentInit() {
     if (this.templatesQuery().length > 0) {
-      this.templatesQuery().forEach(cellTemplate => {
+      this.templatesQuery().forEach((cellTemplate: CellTemplateDirective) => {
         this.templatesMap.set(cellTemplate.field(), cellTemplate.templateRef)
       })
     }

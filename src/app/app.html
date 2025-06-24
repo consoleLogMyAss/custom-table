@@ -2,23 +2,23 @@
   [tableData]="tableData"
   [createTableColumnData]="createTableColumnData"
 >
-
   <table-head>
     <ng-template field="name">
       <input type="text" />
     </ng-template>
   </table-head>
 
-
-
   <table-body>
     <ng-template field="name" let-row>
-      <strong style="color: green;">{{ row.name }}</strong>
+      <strong style="color: green;">{{ row.name }} - {{ row.job }}</strong>
+    </ng-template>
+
+    <ng-template field="country" let-row>
+      <strong style="color: violet;">{{ row.country }}</strong>
     </ng-template>
 
     <ng-template field="job" let-row>
       <strong style="color: blue">{{ row.job }}</strong>
     </ng-template>
   </table-body>
-
 </app-my-table>
