@@ -1,16 +1,20 @@
 <app-my-table
   [tableData]="tableData"
-  [createTableColumnData]="createTableColumnData"
+  [columnData]="columnData"
 >
   <table-head>
     <ng-template field="name">
       <input type="text" />
     </ng-template>
+
+    <ng-template field="job">
+      <input type="number" />
+    </ng-template>
   </table-head>
 
   <table-body>
     <ng-template field="name" let-row>
-      <strong style="color: green;">{{ row.name }} - {{ row.job }}</strong>
+      <strong style="color: green;">{{ row.name }}</strong>
     </ng-template>
 
     <ng-template field="country" let-row>

@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 
-import {NgTemplateOutlet} from '@angular/common';
-import {TableBaseContent} from '../../directives/table-base-content.directive';
-
+import { NgTemplateOutlet } from '@angular/common';
+import { TableBaseContent } from '../../directives/table-base-content.directive';
 
 @Component({
   selector: 'table-body',

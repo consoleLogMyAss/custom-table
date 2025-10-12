@@ -10,7 +10,7 @@ export class TableBaseContent implements AfterContentInit{
 
   protected templatesMap: Map<string, TemplateRef<unknown>> = new Map();
 
-  ngAfterContentInit() {
+  ngAfterContentInit(): void {
     if (this.templatesQuery().length > 0) {
       this.templatesQuery().forEach((cellTemplate: CellTemplateDirective) => {
         this.templatesMap.set(cellTemplate.field(), cellTemplate.templateRef)
@@ -18,11 +18,11 @@ export class TableBaseContent implements AfterContentInit{
     }
   }
 
-  protected  tableColumnData: Signal<any> = computed(() => {
-    return Object.entries(this.tableParent.createTableColumnData());
+  protected  columnData: Signal<any[]> = computed(() => {
+    return this.tableParent.columnData();
   })
 
-  protected tableData: Signal<any> = computed(() => {
+  protected tableData: Signal<any[]> = computed(() => {
     return this.tableParent.tableData();
   })
 }

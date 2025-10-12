@@ -1,14 +1,20 @@
-@for (data of tableData(); track $index) {
+@for (data of tableData(); track dataIndex; let dataIndex = $index) {
   <tr>
-    @for (columnData of tableColumnData(); track $index) {
-      @if (templatesMap.get(columnData[1].field)) {
+    @for (column of columnData(); track $index) {
+      @if (templatesMap.get(column.field)) {
         <td>
-          <ng-container
-            *ngTemplateOutlet="templatesMap.get(columnData[1].field); context: { $implicit: data }"
-          />
+          <div>
+            <ng-container
+              *ngTemplateOutlet="templatesMap.get(column.field); context: { $implicit: data }"
+            />
+          </div>
         </td>
       } @else {
-        <td>{{ data[columnData[1].field] }}</td>
+        <td>
+          <div>
+            {{ column.field === 'index' ? dataIndex + 1 :                                                                                  }}
+          </div>
+        </td>
       }
     }
   </tr>

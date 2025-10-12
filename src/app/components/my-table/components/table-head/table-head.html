@@ -1,18 +1,18 @@
 <tr>
-  @for (columnData of tableColumnData(); track $index) {
-    @if (templatesMap.get(columnData[1].field)) {
+  @for (column of columnData(); track $index) {
+    @if (templatesMap.get(column.field)) {
       <th>
         <div>
-          <div>{{ columnData[1].title }}</div>
+          <div>{{ column.title }}</div>
           <div>
             <ng-container
-              *ngTemplateOutlet="templatesMap.get(columnData[1].field)"
+              *ngTemplateOutlet="templatesMap.get(column.field)"
             />
           </div>
         </div>
       </th>
     } @else {
-      <th>{{ columnData[1].title }}</th>
+      <th>{{ column.title }}</th>
     }
   }
 </tr>

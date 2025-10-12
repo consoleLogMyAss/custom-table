@@ -7,6 +7,6 @@ import {Component, input, InputSignal} from '@angular/core';
   styleUrl: './my-table.scss'
 })
 export class MyTable {
-  public tableData: InputSignal<any> = input();
-  public createTableColumnData: InputSignal<any> = input();
+  public tableData: InputSignal<any[]> = input();
+  public columnData: InputSignal<any[]> = input();
 }
