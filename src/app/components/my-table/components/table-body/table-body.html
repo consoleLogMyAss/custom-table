@@ -12,7 +12,7 @@
       } @else {
         <td>
           <div>
-            {{ column.field === 'index' ? dataIndex + 1 :                                                                                  }}
+            {{ column.field === 'index' ? dataIndex + 1 : data[column.field]  }}
           </div>
         </td>
       }
