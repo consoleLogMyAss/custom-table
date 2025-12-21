@@ -1,0 +1,19 @@
+<tr>
+  @for (column of columnData(); track $index) {
+    @if (templatesMap.get(column.field)) {
+      <th class="thead-cell">
+        <div class="th-content" [attr.data-align]="column.align">
+          <div>
+            <ng-container *ngTemplateOutlet="templatesMap.get(column.field)" />
+          </div>
+        </div>
+      </th>
+    } @else {
+      <th class="thead-cell">
+        <div class="th-content ds-text-body-s-bold" [attr.data-align]="column.align">
+          {{ column.title }}
+        </div>
+      </th>
+    }
+  }
+</tr>

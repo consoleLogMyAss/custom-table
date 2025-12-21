@@ -1,16 +1,19 @@
 import { Component } from '@angular/core';
-import { MyTable} from './components/my-table/my-table';
-import { TableHead } from './components/my-table/components/table-head/table-head';
-import { TableBody } from './components/my-table/components/table-body/table-body';
-import { CellTemplateDirective } from './components/my-table/directives/cell-template.directive';
+import {TableComponent} from './components/table/table.component';
+import {TableHeadComponent} from './components/table/components/table-head/table-head.component';
+import {TableBodyComponent} from './components/table/components/table-body/table-body.component';
+import {CellTemplateDirective} from './components/table/directives/cell-template.directive';
+import {TColumnData} from './components/table/types';
+
 
 @Component({
   selector: 'app-root',
   imports: [
-    MyTable,
-    TableHead,
-    TableBody,
+    TableComponent,
+    TableHeadComponent,
+    TableBodyComponent,
     CellTemplateDirective
+
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
@@ -29,7 +32,7 @@ export class App {
     {name: 'Fatima', age: 31, country: 'Morocco', email: 'fatima.rabat@outlook.com', job: 'Business Analyst'}
   ];
 
-  protected columnData = [
+  protected columnData: TColumnData[] = [
     {
       title: '№',
       field: 'index',
@@ -41,6 +44,7 @@ export class App {
     {
       title: 'Age',
       field: 'age',
+      align: 'right',
     },
     {
       title: 'Country',

@@ -1,0 +1,13 @@
+<div class="table-container">
+  <table class="table-container__table">
+    <table-colgroup [columnData]="columnData()" />
+
+    <ng-content select="table-head">
+      <table-head />
+    </ng-content>
+
+    <ng-content select="table-body">
+      <table-body />
+    </ng-content>
+  </table>
+</div>

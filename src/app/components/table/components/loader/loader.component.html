@@ -1,0 +1,17 @@
+@switch (mode()) {
+  @case ('default') {
+    <ng-container [ngTemplateOutlet]="loaderTpl" />
+  }
+
+  @case ('blurred') {
+    <div class="blurred ds-overlay-container">
+      <ng-container [ngTemplateOutlet]="loaderTpl" />
+    </div>
+  }
+}
+
+<ng-template #loaderTpl>
+  <div class="wrapper">
+    <span class="loader"></span>
+  </div>
+</ng-template>

@@ -1,0 +1,40 @@
+:host {
+  display: table-header-group;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 8;
+
+  &.no-filter-results {
+    display: none;
+  }
+
+  .thead-cell {
+    vertical-align: middle;
+
+    .th-content {
+      height: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      color: #272727;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-inline: 4px 8px;
+
+      &[data-align='center'] {
+        align-items: center;
+      }
+
+      &[data-align='left'] {
+        align-items: flex-start;
+      }
+
+      &[data-align='right'] {
+        align-items: flex-end;
+      }
+    }
+  }
+}

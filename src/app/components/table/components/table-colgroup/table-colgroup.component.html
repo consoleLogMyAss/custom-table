@@ -1,0 +1,3 @@
+@for (column of columnData(); track $index) {
+  <col [ngStyle]="{ width: column.width | colWidth }" />
+}

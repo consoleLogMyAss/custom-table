@@ -1,0 +1,53 @@
+@if (tableParent.loading()) {
+  <tr class="tbody-row empty">
+    <td
+      class="tbody-cell"
+      [attr.colspan]="columnData().length"
+    >
+      <ui-loader />
+    </td>
+  </tr>
+} @else {
+  @for (data of tableData(); track data['id'] ?? $index; let dataIndex = $index) {
+    <tr
+      class="tbody-row"
+      [class.row-clickable]="tableParent.rowClickable()"
+      (click)="rowSelect(data)"
+    >
+      @for (column of columnData(); track column.field) {
+        @let template = templatesMap.get(column.field);
+
+        @if (template) {
+          <td class="tbody-cell">
+            <div
+              class="tbody-cell__content ds-text-body-m"
+              [attr.data-align]="column.align"
+            >
+              <ng-container *ngTemplateOutlet="template; context: { $implicit: data }" />
+            </div>
+          </td>
+        } @else {
+          <td class="tbody-cell">
+            <div
+              class="tbody-cell__content ds-text-body-m"
+              [attr.data-align]="column.align"
+            >
+              <span>
+                {{ column.field === 'index' ? dataIndex + 1 : data[column.field] }}
+              </span>
+            </div>
+          </td>
+        }
+      }
+    </tr>
+  } @empty {
+    <tr class="tbody-row empty">
+      <td
+        class="tbody-cell ds-text-body-m"
+        [attr.colspan]="columnData().length"
+      >
+        {{ noFilterResults() ? tableParent.noFilterResultsText() : tableParent.noDataText() }}
+      </td>
+    </tr>
+  }
+}
